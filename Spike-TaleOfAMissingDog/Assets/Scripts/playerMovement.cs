@@ -7,7 +7,7 @@ public class playerMovement : MonoBehaviour
 	public float moveSpeed = 5f;
 
 	public Rigidbody2D rb;
-	public Animator animator; 
+	//public Animator animator; 
 
 	private Vector2 movement;
 
@@ -20,10 +20,10 @@ public class playerMovement : MonoBehaviour
 
         movement = movement.normalized;
 
-        animator.SetFloat("Horizontal", movement.x);
-        animator.SetFloat("Vertical", movement.y);
-
-        animator.SetFloat("Speed", movement.sqrMagnitude); 
+        //animator.SetFloat("Horizontal", movement.x);
+        //animator.SetFloat("Vertical", movement.y);
+        
+        //animator.SetFloat("Speed", movement.sqrMagnitude); 
 
     }
 
