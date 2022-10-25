@@ -12,6 +12,7 @@ public class Shooting : MonoBehaviour
     //public Rigidbody2D rigidbody;
 
     public float bulletForce = 20f;
+    public float x = 1.0f;
 
     public Camera cam;
 
@@ -59,8 +60,11 @@ public class Shooting : MonoBehaviour
         //Vector2 shootingDir = firePoint.localPosition;
         shootingDir.Normalize();
 
+        var bulletSpawnPoint = CreateBulletSpawnPoint();
+
         // create bullet
-        GameObject bullet = Instantiate(stoneBulletPrefab, firePoint.position, Quaternion.identity);
+        //GameObject bullet = Instantiate(stoneBulletPrefab, firePoint.position, Quaternion.identity);
+        GameObject bullet = Instantiate(stoneBulletPrefab, bulletSpawnPoint, Quaternion.identity);
 
         // add force to bullet
         //Rigidbody2D rigidbody = bullet.GetComponent<Rigidbody2D>();
@@ -70,6 +74,23 @@ public class Shooting : MonoBehaviour
         bullet.GetComponent<Rigidbody2D>().velocity = shootingDir * bulletForce;
         bullet.transform.Rotate(0,0, Mathf.Atan2(shootingDir.y, shootingDir.x) * Mathf.Rad2Deg);
         Destroy(bullet, 2.0f);
+    }
+
+    private Vector3 CreateBulletSpawnPoint()
+    {
+        // link for inspiration : https://forum.unity.com/threads/find-a-point-on-a-line-between-two-vector3.140700/ 
+
+        //todo: this is still buggy
+
+        // create a bulletSpawnPoint outside of players Collider
+        var shootingDirVec3 = new Vector3(shootingDir.x, shootingDir.y);
+        var vectorDiff = (firePoint.position - shootingDirVec3).normalized;
+        // var bulletSpawnPoint = firePoint.position + (-0.2f * vectorDiff);
+
+        // 2nd try
+        Vector3 bulletSpawnPoint = Vector3.Lerp(firePoint.position, shootingDirVec3, x / (firePoint.position - shootingDirVec3).magnitude);
+
+        return bulletSpawnPoint;
     }
 
 

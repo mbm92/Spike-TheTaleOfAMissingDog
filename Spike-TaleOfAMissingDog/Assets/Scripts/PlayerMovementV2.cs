@@ -15,7 +15,7 @@ public class PlayerMovementV2 : MonoBehaviour
 
     public Camera cam;
 
-    private Vector2 movement;
+    private Vector2 moveDirection;
     private Vector2 mousePos;
 
     // Start is called before the first frame update
@@ -23,8 +23,7 @@ public class PlayerMovementV2 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        movement.x = Input.GetAxisRaw("Horizontal");
-        movement.y = Input.GetAxisRaw("Vertical");
+        ProcessInputs();
 
         // find input for mouse
         mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
@@ -33,10 +32,26 @@ public class PlayerMovementV2 : MonoBehaviour
 
     void FixedUpdate()
     {
-        rigidbody.MovePosition(rigidbody.position + movement * moveSpeed * Time.fixedDeltaTime);
-
+        
+        Move();
         RotatePlayer();
 
+    }
+
+    void ProcessInputs()
+    {
+        moveDirection.x = Input.GetAxisRaw("Horizontal");
+        moveDirection.y = Input.GetAxisRaw("Vertical");
+
+        // handle diagonal movementspeed to not be faster then one-directional.
+        moveDirection.Normalize();
+    }
+
+    void Move()
+    {
+        rigidbody.MovePosition(rigidbody.position + moveDirection * moveSpeed * Time.fixedDeltaTime);
+
+        // rigidbody.velocity = new Vector2(moveDirection.x * moveSpeed, moveDirection.y * moveSpeed);
     }
 
     // rotate player to look toward mouse position
