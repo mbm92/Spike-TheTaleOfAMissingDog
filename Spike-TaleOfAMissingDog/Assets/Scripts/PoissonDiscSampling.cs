@@ -15,13 +15,9 @@ public static class PoissonDiscSampling
         float cellSize = radius / Mathf.Sqrt(2);
         int[,] grid = new int[Mathf.CeilToInt(samplingRegionSize.x / cellSize), Mathf.CeilToInt(samplingRegionSize.y / cellSize)];
 
-        Rect rect = new Rect(0, 0, samplingRegionSize.x, samplingRegionSize.y);
-        Vector2 vectorGrid = new Vector2(Mathf.CeilToInt(samplingRegionSize.x / cellSize),Mathf.CeilToInt(samplingRegionSize.y / cellSize));
-
-
-
         List<Vector2> points = new List<Vector2>();
         List<Vector2> spawnPoints = new List<Vector2>();
+        List<Vector2> shiftedPoints = new List<Vector2>();
 
         spawnPoints.Add(samplingRegionSize / 2);
 
@@ -53,7 +49,8 @@ public static class PoissonDiscSampling
             }
         }
 
-        return points;
+        //return points;
+        return shiftedPoints = ShiftPoints(points, localPosition);
     }
 
     static bool IsValid(Vector2 candidate, Vector2 sampleRegionSize, float cellSize, float radius, List<Vector2> points, int[,] grid)
@@ -86,5 +83,19 @@ public static class PoissonDiscSampling
             return true;
         }
         return false;
+    }
+
+    // method to shiftPoints so correspond with the localPosition of the lower left corner of the grid
+    static List<Vector2> ShiftPoints(List<Vector2> points, Vector2 localPosition)
+    {
+        var shiftedPoints = new List<Vector2>();
+
+        foreach (Vector2 point in points)
+        {
+            var shiftedPoint = new Vector2(point.x + localPosition.x, point.y + localPosition.y);
+            shiftedPoints.Add(shiftedPoint);
+        }
+
+        return shiftedPoints;
     }
 }
