@@ -12,7 +12,7 @@ public class ObjectTemplate : MonoBehaviour
     public List<GameObject> rareObjects;
 
 
-    public List<Vector2> SpawnPoints;
+    public List<Vector2> spawnPoints;
 
     private float waitTime = 3f;
 

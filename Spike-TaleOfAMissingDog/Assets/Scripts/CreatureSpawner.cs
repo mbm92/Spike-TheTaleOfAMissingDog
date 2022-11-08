@@ -2,15 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MapObjectsSpawner : MonoBehaviour
+public class CreatureSpawner : MonoBehaviour
 {
 
-    private ObjectTemplate objectTemplate;
+    private MonstersTemplate monstersTemplate;
     private int rand;
     private int possibilityValue;
-    private float waitTime = 4f;
 
-    [SerializeField] private float radius = 4;   // create random radius between 3.5 and 6.0? 
+    [SerializeField] private float radius;   // create random radius between 5 and 8? - the bigger radius the less monsterSpawnPoints
     [SerializeField] private Vector2 regionSize = new Vector2(17, 17);
     private int rejectionSamples = 30;
     // public float displayRadius = 0.15f;
@@ -25,9 +24,9 @@ public class MapObjectsSpawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        objectTemplate = GameObject.FindGameObjectWithTag("RoomObjects").GetComponent<ObjectTemplate>();
-        
-        radius = Random.Range(4.0f, 6.0f); // impact how many spawnPoints there should be in the map 
+        monstersTemplate = GameObject.FindGameObjectWithTag("Monsters").GetComponent<MonstersTemplate>();
+
+        radius = Random.Range(9f, 11f);
 
         points = PoissonDiscSampling.GeneratingPoints(radius, regionSize, transform.position, rejectionSamples);
 
@@ -35,11 +34,12 @@ public class MapObjectsSpawner : MonoBehaviour
         {
             possibilityValue = Random.Range(0, 6);
             Spawn(possibilityValue, point);
-            objectTemplate.spawnPoints.Add(point);
+
+            monstersTemplate.spawnPoints.Add(point);
         }
     }
 
-    void Spawn(int possibilityValue, Vector2 objSpawnPoint)
+    private void Spawn(int possibilityValue, Vector2 monsterSpawnPoint)
     {
         switch (possibilityValue)
         {
@@ -47,19 +47,19 @@ public class MapObjectsSpawner : MonoBehaviour
             case 1:
             case 2:
             case 3:
-                rand = Random.Range(0, objectTemplate.commenObjects.Count);
-                Instantiate(objectTemplate.commenObjects[rand], objSpawnPoint, Quaternion.identity);
+                rand = Random.Range(0, monstersTemplate.commonMonsters.Count);
+                Instantiate(monstersTemplate.commonMonsters[rand], monsterSpawnPoint, Quaternion.identity);
                 break;
 
             case 4:
             case 5:
-                rand = Random.Range(0, objectTemplate.uncommenObjects.Count);
-                Instantiate(objectTemplate.uncommenObjects[rand], objSpawnPoint, Quaternion.identity);
+                rand = Random.Range(0, monstersTemplate.uncommonMonsters.Count);
+                Instantiate(monstersTemplate.uncommonMonsters[rand], monsterSpawnPoint, Quaternion.identity);
                 break;
 
             case 6:
-                rand = Random.Range(0, objectTemplate.rareObjects.Count);
-                Instantiate(objectTemplate.rareObjects[rand], objSpawnPoint, Quaternion.identity);
+                rand = Random.Range(0, monstersTemplate.rareMonsters.Count);
+                Instantiate(monstersTemplate.rareMonsters[rand], monsterSpawnPoint, Quaternion.identity);
                 break;
 
             default:

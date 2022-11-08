@@ -19,7 +19,7 @@ public class RoomTemplates : MonoBehaviour
     private bool spawnedBoss;
     public GameObject boss;
 
-    private Monsters monsters;
+    private MonstersTemplate monstersTemplate;
 
     // should spawn a locked door in the last room
     // should spawn a key in on other room on the map. 
@@ -28,10 +28,10 @@ public class RoomTemplates : MonoBehaviour
 
     void Start()
     {
-        monsters = GameObject.FindGameObjectWithTag("Monsters").GetComponent<Monsters>();
-        var rand =  Random.Range(0,monsters.monsters.Count-1);
+        monstersTemplate = GameObject.FindGameObjectWithTag("Monsters").GetComponent<MonstersTemplate>();
+        var rand =  Random.Range(0,monstersTemplate.bossMonsters.Count-1);
 
-        boss = monsters.monsters[rand];
+        boss = monstersTemplate.bossMonsters[rand];
     }
 
 

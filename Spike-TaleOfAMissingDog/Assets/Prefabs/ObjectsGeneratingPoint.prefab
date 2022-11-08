@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7848015768481241179}
   - component: {fileID: 7848015768481241181}
+  - component: {fileID: 1665816839692919773}
   m_Layer: 0
   m_Name: ObjectsGeneratingPoint
   m_TagString: GeneratedPoints
@@ -44,4 +45,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47f695cf4940fbe418f0786455822d27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  radius: 4
+  regionSize: {x: 17, y: 17}
+  points: []
+--- !u!114 &1665816839692919773
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7848015768481241178}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0e9fd05b747ebb4088e3a6756167816, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  radius: 0
+  regionSize: {x: 16, y: 16}
   points: []
