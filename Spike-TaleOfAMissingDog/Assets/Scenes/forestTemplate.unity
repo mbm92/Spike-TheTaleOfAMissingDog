@@ -192,7 +192,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3588081640232661230, guid: bb303ce07b1e1d2419e9b90b40c0649a, type: 3}
       propertyPath: orthographic size
-      value: 6
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 3588081640232661230, guid: bb303ce07b1e1d2419e9b90b40c0649a, type: 3}
       propertyPath: m_BackGroundColor.b
@@ -224,7 +224,7 @@ PrefabInstance:
       objectReference: {fileID: 2046321618}
     - target: {fileID: 3588081641152516550, guid: bb303ce07b1e1d2419e9b90b40c0649a, type: 3}
       propertyPath: m_Lens.OrthographicSize
-      value: 6
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 3588081641152516551, guid: bb303ce07b1e1d2419e9b90b40c0649a, type: 3}
       propertyPath: m_LocalPosition.x

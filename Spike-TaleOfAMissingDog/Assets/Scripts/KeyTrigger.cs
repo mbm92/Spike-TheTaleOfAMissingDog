@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using Debug = UnityEngine.Debug;
 
@@ -9,6 +10,8 @@ public class KeyTrigger : MonoBehaviour
     public List<GameObject> TriggeredObjects = new List<GameObject>();
 
     public static bool KeyCollected = false;    // set a global state for collected key
+
+
 
     void OnTriggerEnter2D(Collider2D collider)
     {
@@ -33,6 +36,8 @@ public class KeyTrigger : MonoBehaviour
 
                 }
             }
+            // before destroy set global states that ahve something to do with keyCollected.
+            Destroy(gameObject);    // destroy key object, 
         }
     }
 }
