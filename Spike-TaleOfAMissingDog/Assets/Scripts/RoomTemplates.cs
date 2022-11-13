@@ -1,7 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Numerics;
+using Cinemachine.Utility;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Quaternion = UnityEngine.Quaternion;
+using Vector3 = UnityEngine.Vector3;
 
 public class RoomTemplates : MonoBehaviour
 {
@@ -17,7 +22,9 @@ public class RoomTemplates : MonoBehaviour
 
     private float waitTime = 3f;
     private bool spawnedBoss;
-    public GameObject boss;
+    private GameObject boss;
+    public GameObject doorWay;
+    public GameObject key;
 
     private MonstersTemplate monstersTemplate;
 
@@ -37,10 +44,10 @@ public class RoomTemplates : MonoBehaviour
 
     void Update()
     {
-        SpawnBoss();
+        CreateBossRoom();
     }
 
-    void SpawnBoss()
+    void CreateBossRoom()
     {
         if (waitTime <= 0 && spawnedBoss == false)
         {
@@ -50,9 +57,10 @@ public class RoomTemplates : MonoBehaviour
                 {
                     var roomPos = rooms[i].transform.position;
                     Debug.Log(roomPos);
-                    Debug.Log(rooms[i]);
-                    Instantiate(boss, roomPos, Quaternion.identity);
-                    spawnedBoss = true;
+                    Debug.Log(rooms[i].name);
+                    SpawnBoss(roomPos);
+                    SpawnRuneCircle(roomPos);
+                    SpawnKey(roomPos);
                 }
             }
         }
@@ -60,5 +68,42 @@ public class RoomTemplates : MonoBehaviour
         {
             waitTime -= Time.deltaTime;
         }
+    }
+
+    void SpawnBoss(Vector3 roomPos)
+    {
+        spawnedBoss = true;
+        Instantiate(boss, roomPos, Quaternion.identity);
+    }
+
+    void SpawnKey(Vector3 bossRoomPos)
+    {
+        Vector3 pivot = new Vector3();  // pivot = (0,0,0) = ForestStartRoom vector position
+
+        if (waitTime <= 0)
+        {
+            foreach (GameObject room in rooms)
+            {
+                if (pivot == Vector3.zero) // check if pivot is set. 
+                {
+                    Debug.Log("setting pivot to start pos");
+                    pivot = room.transform.position;    // set start pivot
+                }
+
+                var currentRoomDistance = (room.transform.position - bossRoomPos).magnitude;   // calculate distance between vectors
+                var pivotDistance = (pivot - bossRoomPos).magnitude;
+
+                if (currentRoomDistance >= pivotDistance)   // if currentRoom distance is greater then pivot
+                {
+                    pivot = room.transform.position;    // set pivot to currentRoom position
+                }
+            }
+            Instantiate(key, pivot, Quaternion.identity);
+        }
+    }
+
+    void SpawnRuneCircle(Vector3 roomPos)
+    {
+        Instantiate(doorWay, roomPos, Quaternion.identity);
     }
 }

@@ -81,3 +81,7 @@ MonoBehaviour:
   - {fileID: 8298701171029058060, guid: 8e5fc50a0dab36a488587b51a4cdbd0a, type: 3}
   - {fileID: 4151626092200293698, guid: 4ca19b90303300a44a283b0f95fdf5d6, type: 3}
   closedRoom: {fileID: 7759527515300494580, guid: 5c4950493ae61484bb23ad5b18e28dab, type: 3}
+  rooms: []
+  boss: {fileID: 0}
+  doorWay: {fileID: 2471676529403865278, guid: 3096e988cc274ad4eae65dd8fd5051a8, type: 3}
+  key: {fileID: 562831151626730991, guid: 5ec4d98373927f746b75d4019705224e, type: 3}
