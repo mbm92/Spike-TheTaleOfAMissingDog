@@ -42,6 +42,7 @@ public class CreatureSpawner : MonoBehaviour
     private void Spawn(int possibilityValue, Vector2 monsterSpawnPoint)
     {
         GameObject monster;
+
         switch (possibilityValue)
         {
             case 0:
@@ -50,7 +51,7 @@ public class CreatureSpawner : MonoBehaviour
             case 3:
                 rand = Random.Range(0, monstersTemplate.commonMonsters.Count);
                 monster = monstersTemplate.commonMonsters[rand];
-                monster.transform.localScale += new Vector3(-0.5f, -0.5f, 0);
+                monster.transform.localScale = new Vector3(0.5f, 0.5f, 0);
 
                 Instantiate(monster, monsterSpawnPoint, Quaternion.identity);
                 break;
@@ -59,8 +60,8 @@ public class CreatureSpawner : MonoBehaviour
             case 5:
                 rand = Random.Range(0, monstersTemplate.uncommonMonsters.Count);
                 monster = monstersTemplate.uncommonMonsters[rand];
-                monster.transform.localScale += new Vector3(-0.5f, -0.5f, 0);
-                Instantiate(monstersTemplate.uncommonMonsters[rand], monsterSpawnPoint, Quaternion.identity);
+                monster.transform.localScale = new Vector3(0.5f, 0.5f, 0);
+                Instantiate(monster, monsterSpawnPoint, Quaternion.identity);
                 break;
 
             case 6:
