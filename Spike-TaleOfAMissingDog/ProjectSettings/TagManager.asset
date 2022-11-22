@@ -11,6 +11,9 @@ TagManager:
   - Rooms
   - StartRoom
   - Monsters
+  - GeneratingPoint
+  - RoomObjects
+  - GeneratedPoints
   layers:
   - Default
   - TransparentFX
