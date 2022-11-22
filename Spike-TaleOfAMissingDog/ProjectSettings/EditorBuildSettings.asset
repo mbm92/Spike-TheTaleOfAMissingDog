@@ -6,7 +6,7 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/finalScenes/forestTemplate.unity
+    path: Assets/Scenes/finalScenes/ForestDay.unity
     guid: a12c2055834d213409ff9c71652b9996
   - enabled: 1
     path: Assets/Scenes/finalScenes/ForestNight.unity
