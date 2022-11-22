@@ -31,6 +31,7 @@ public class Shooting : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.Mouse0))
         {
             Shoot();
+            GetComponent<AudioSource>().Play();
         }
     }
 
