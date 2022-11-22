@@ -31,8 +31,8 @@ public class GameManager : MonoBehaviour
 
 
     // references
-    public RoomTemplates roomTemplates;
-    public MonstersTemplate monstersTemplate;
+    //public RoomTemplates roomTemplates;
+    //public MonstersTemplate monstersTemplate;
     // public Player; - need a ref to the player gameObject
 
 
@@ -57,5 +57,10 @@ public class GameManager : MonoBehaviour
     public void LoadState(Scene scene, LoadSceneMode mode)
     {
         Debug.Log("LoadState");
+    }
+
+    public void LoadNextScene()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 }

@@ -14,6 +14,7 @@ TagManager:
   - GeneratingPoint
   - RoomObjects
   - GeneratedPoints
+  - GameManager
   layers:
   - Default
   - TransparentFX

@@ -82,11 +82,14 @@ public class DoorWay : MonoBehaviour
         {
             //SceneManager.LoadScene(sceneToLoad);
             Debug.Log("LoadNext scene - test");
+            // call gameManager?
+
+            FindObjectOfType<GameManager>().LoadNextScene();
         }
 
 
         // what is next room from this on? from this exitPoint? 
-
-
     }
+
+
 }

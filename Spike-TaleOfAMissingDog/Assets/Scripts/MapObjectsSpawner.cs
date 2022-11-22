@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using Debug = UnityEngine.Debug;
 
 public class MapObjectsSpawner : MonoBehaviour
 {
@@ -23,10 +25,11 @@ public class MapObjectsSpawner : MonoBehaviour
     // rare     = 6     = 1/7
 
     // Start is called before the first frame update
+
     void Start()
     {
         objectTemplate = GameObject.FindGameObjectWithTag("RoomObjects").GetComponent<ObjectTemplate>();
-        
+
         radius = Random.Range(4.0f, 6.0f); // impact how many spawnPoints there should be in the map 
 
         points = PoissonDiscSampling.GeneratingPoints(radius, regionSize, transform.position, rejectionSamples);

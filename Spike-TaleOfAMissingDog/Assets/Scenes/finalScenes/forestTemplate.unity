@@ -123,6 +123,55 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &9308563
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 9308565}
+  - component: {fileID: 9308564}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: GameManager
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &9308564
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9308563}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f46982c9060982a4d8ab133ae46c6866, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bossKilled: 0
+  keyCollected: 0
+  roomTemplates: {fileID: 4346257967958119592}
+  monstersTemplate: {fileID: 6615608545707202510}
+  experience: 0
+--- !u!4 &9308565
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9308563}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -5.500238, y: 3.1159148, z: -0.3132116}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &377042084
 GameObject:
   m_ObjectHideFlags: 0
@@ -569,6 +618,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 60337c9efc86e124496fbc6329ed7cfb, type: 3}
+--- !u!114 &4346257967958119592 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4346257968068587587, guid: 60337c9efc86e124496fbc6329ed7cfb, type: 3}
+  m_PrefabInstance: {fileID: 4346257967958119591}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fbff98eb092bd054fab995e4de11c36f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &6615608545707202509
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -626,6 +686,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ed74ab0d98ca6a24d8244d58784e409f, type: 3}
+--- !u!114 &6615608545707202510 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6615608545839215156, guid: ed74ab0d98ca6a24d8244d58784e409f, type: 3}
+  m_PrefabInstance: {fileID: 6615608545707202509}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 129d9cea088b53648b002650e4a2f59a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &6938962819425251300
 PrefabInstance:
   m_ObjectHideFlags: 0
