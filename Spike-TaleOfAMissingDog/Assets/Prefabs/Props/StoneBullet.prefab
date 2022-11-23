@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8524356572579691078}
   - component: {fileID: 7226911150614973934}
   - component: {fileID: 3187168112968592539}
+  - component: {fileID: -3488355745687095047}
   m_Layer: 0
   m_Name: StoneBullet
   m_TagString: Weapon
@@ -110,7 +111,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8524356572579691081}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -119,7 +120,20 @@ Rigidbody2D:
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
+--- !u!114 &-3488355745687095047
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8524356572579691081}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42d4a57f25c371f449c137e2fb3d3e9c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  force: 5
