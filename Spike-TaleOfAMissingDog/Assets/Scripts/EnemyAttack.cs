@@ -1,42 +1,48 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using UnityEngine;
+
+using Debug = UnityEngine.Debug;
 
 public class EnemyAttack : MonoBehaviour
 {
-    //public float enemyCooldown = 2;
-    //public float damage = 6;
+    public float enemyCooldown = 2;
+    public float damage = 6;
 
-    //private bool playerInRange = false;
-    //private bool canAttack = true;
+    private bool playerinrange = false;
+    private bool canattack = true;
 
-    //private void Update()
-    //{
-    //    if (playerInRange && canAttack)
-    //    {
-    //        GameObject.Find("Player").GetComponent<ControllerForPlayer>().currentHealth -= damage;
-    //        StartCoroutine(AttackCooldown());
-    //    }
-    //}
+    private void Update()
+    {
+        if (playerinrange && canattack)
+        {
+            Debug.Log("Find player");
+            
+            GameObject.Find("Player").GetComponent<PlayerHealth>().currenthealth -= damage;
+            StartCoroutine(AttackCooldown());
+            Debug.Log("Enemy Attacked");
+        }
+    }
 
-    //void OnTriggerEnter(Collider other)
-    //{
-    //    if (other.gameObject.CompareTag("Player")) ;
-    //    {
-    //        playerInRange = true;
-    //    }
-    //}
-    //void OnTriggerExit(Collider other)
-    //{
-    //    if (other.gameObject.CompareTag("Player")) ;
-    //    {
-    //        playerInRange = false;
-    //    }
-    //}
-    //IEnumerator AttackCooldown()
-    //{
-    //    canAttack = false;
-    //    yield return new WaitForSeconds(enemyCooldown);
-    //    canAttack = true;
-    //}
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("Player")) ;
+        {
+            playerinrange = true;
+        }
+    }
+    void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("Player")) ;
+        {
+            playerinrange = false;
+        }
+    }
+    IEnumerator AttackCooldown()
+    {
+        canattack = false;
+        yield return new WaitForSeconds(enemyCooldown);
+        canattack = true;
+    }
 }
