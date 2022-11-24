@@ -40,6 +40,7 @@ public class Shooting : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.Space) && canFire)
         {
             Shoot();
+            GetComponent<AudioSource>().Play();
         }
      }
 
