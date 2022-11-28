@@ -10,7 +10,7 @@ public class EnemyAttack : MonoBehaviour
     public float enemyCooldown = 2;
     public float damage = 6;
 
-    private bool playerinrange = false;
+    private bool playerinrange = false; // this could lead to a problem when restarting game and this is not set to false,
     private bool canattack = true;
 
     private void Update()
@@ -27,14 +27,14 @@ public class EnemyAttack : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("Player")) ;
+        if (other.gameObject.CompareTag("Player"))
         {
             playerinrange = true;
         }
     }
     void OnTriggerExit2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("Player")) ;
+        if (other.gameObject.CompareTag("Player"))
         {
             playerinrange = false;
         }

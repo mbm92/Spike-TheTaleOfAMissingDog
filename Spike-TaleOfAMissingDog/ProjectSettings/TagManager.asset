@@ -15,6 +15,7 @@ TagManager:
   - RoomObjects
   - GeneratedPoints
   - GameManager
+  - Weapon
   layers:
   - Default
   - TransparentFX
@@ -57,6 +58,9 @@ TagManager:
     locked: 0
   - name: Forest
     uniqueID: 3320727471
+    locked: 0
+  - name: Monster
+    uniqueID: 4008778895
     locked: 0
   - name: Player
     uniqueID: 1154525395
