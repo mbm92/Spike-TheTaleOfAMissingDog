@@ -25,4 +25,16 @@ public class BulletScript : MonoBehaviour
     {
         
     }
+
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        // get collide object
+        // check if otherObject is monster Tag
+        // if it is
+        // get otherObjects.EnemyHealth and subtract the health prop with the damage. 
+
+
+    }
+
+
 }

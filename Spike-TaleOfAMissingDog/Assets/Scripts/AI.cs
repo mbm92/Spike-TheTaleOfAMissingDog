@@ -8,9 +8,12 @@ public class AI : MonoBehaviour
 {
 
     private GameObject player;
-    [SerializeField] private float speed = 2;
+    [SerializeField] public float speed = 2;
     private float distance;
     // Start is called before the first frame update
+
+    private float attackRange = 15f;
+
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
@@ -24,8 +27,31 @@ public class AI : MonoBehaviour
             player = GameObject.FindGameObjectWithTag("Player");
         }
 
-        distance = Vector2.Distance(transform.position, player.transform.position);
-        transform.position = Vector2.MoveTowards(this.transform.position, player.transform.position, speed * Time.deltaTime);
+        EngagePlayer(player);
+
+        //distance = Vector2.Distance(transform.position, player.transform.position);
+        //transform.position = Vector2.MoveTowards(this.transform.position, player.transform.position, speed * Time.deltaTime);
+    }
+
+    private void EngagePlayer(GameObject player)
+    {
+        var creaturePos = gameObject.transform.position;
+        
+        // look if player is in range
+        // if player is in range MoveTowards the player. 
+        // else just stand still or move in a pattern? 
+
+        distance = Vector2.Distance(creaturePos, player.transform.position);
+
+
+        if (distance > attackRange)
+            return;
+        else
+        {
+            transform.position =
+                Vector2.MoveTowards(creaturePos, player.transform.position, speed * Time.fixedDeltaTime);
+        }
+
 
     }
 }

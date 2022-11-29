@@ -22,6 +22,7 @@ public class Enemyhealth : MonoBehaviour
 
         if (health <= 0 )
         {
+            FindObjectOfType<AI>().GetComponent<AI>().speed = 0;
             //gameObject.Move(Vector3.zero,false,false);
             //WaitForSeconds(3);
             Destroy(gameObject);
