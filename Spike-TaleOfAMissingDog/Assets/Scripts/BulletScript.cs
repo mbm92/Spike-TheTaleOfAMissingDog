@@ -36,12 +36,11 @@ public class BulletScript : MonoBehaviour
             other.gameObject.GetComponent<Enemyhealth>().health -= force;
             Destroy(gameObject);
         }
-        // get collide object
-        // check if otherObject is monster Tag
-        // if it is
-        // get otherObjects.EnemyHealth and subtract the health prop with the damage. 
+    }
 
-
+    void OnCollisionEnter2D(Collision2D collision2D)
+    {
+        Destroy(gameObject);    
     }
 
 
