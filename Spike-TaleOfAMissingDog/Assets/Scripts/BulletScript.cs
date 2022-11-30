@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using UnityEngine;
+using Debug = UnityEngine.Debug;
 
 public class BulletScript : MonoBehaviour
 {
@@ -26,8 +28,14 @@ public class BulletScript : MonoBehaviour
         
     }
 
-    void OnCollisionEnter2D(Collision2D collision)
+    void OnTriggerEnter2D(Collider2D other)
     {
+        if (other.gameObject.CompareTag("Monsters"))
+        {
+            
+            other.gameObject.GetComponent<Enemyhealth>().health -= force;
+            Destroy(gameObject);
+        }
         // get collide object
         // check if otherObject is monster Tag
         // if it is

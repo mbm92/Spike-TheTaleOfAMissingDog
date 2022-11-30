@@ -8,7 +8,7 @@ public class AI : MonoBehaviour
 {
 
     private GameObject player;
-    [SerializeField] public float speed = 2;
+    [SerializeField] public float speed = 2f;
     private float distance;
     // Start is called before the first frame update
 
