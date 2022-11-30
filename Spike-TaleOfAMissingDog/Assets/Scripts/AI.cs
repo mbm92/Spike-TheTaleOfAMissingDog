@@ -49,7 +49,7 @@ public class AI : MonoBehaviour
         else
         {
             transform.position =
-                Vector2.MoveTowards(creaturePos, player.transform.position, speed * Time.fixedDeltaTime);
+                Vector2.MoveTowards(creaturePos, player.transform.position, speed * Time.deltaTime);
         }
 
 
