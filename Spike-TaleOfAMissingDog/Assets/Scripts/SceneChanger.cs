@@ -16,5 +16,10 @@ public class SceneChanger : MonoBehaviour
         if (changeTime <=0)
         {SceneManager.LoadScene(sceneName);
         }
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            SceneManager.LoadScene(sceneName);
+        }
     }
 }

@@ -102,7 +102,7 @@ GameObject:
   - component: {fileID: 8362779682503743685}
   m_Layer: 0
   m_Name: Character (55)
-  m_TagString: Untagged
+  m_TagString: Monsters
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
