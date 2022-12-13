@@ -17,6 +17,7 @@ TagManager:
   - GameManager
   - Weapon
   - Enemy
+  - MiniGameCam
   layers:
   - Default
   - TransparentFX

@@ -8,6 +8,8 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
 
+    private GameObject player;
+
     private void Awake()
     {
         if (GameManager.instance != null)
@@ -52,6 +54,7 @@ public class GameManager : MonoBehaviour
     public void SaveState()
     {
         Debug.Log("SaveState");
+        player = GameObject.FindGameObjectWithTag("Player");
     }
 
     public void LoadState(Scene scene, LoadSceneMode mode)
@@ -61,6 +64,8 @@ public class GameManager : MonoBehaviour
 
     public void LoadNextScene()
     {
+        if(!player) player = GameObject.FindGameObjectWithTag("Player");
+        DontDestroyOnLoad(player);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 

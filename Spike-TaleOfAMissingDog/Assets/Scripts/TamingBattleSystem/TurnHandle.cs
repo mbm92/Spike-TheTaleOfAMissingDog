@@ -68,7 +68,7 @@ public class TurnHandle : MonoBehaviour
                 break;
 
             case BattleState.EnemyTurn:
-                Debug.Log(state);
+                //Debug.Log(state);
                 EnemyTurn();
                 // enemy take turn
                 break;
