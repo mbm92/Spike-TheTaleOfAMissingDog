@@ -2,27 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerSoulHealth : MonoBehaviour
+public class EnemyAtkHazard : MonoBehaviour
 {
-    public int HP;
 
-    public int MaxHp;
+    public int Damage;
 
-    public void TakeDamage(int dmg)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        HP -= dmg;
-
-        if (HP <= 0)
+        if (other.GetComponent<PlayerSoulWillpower>())
         {
-            Death();
+            other.GetComponent<PlayerSoulWillpower>().TakeDamage(Damage);
         }
     }
-
-    private void Death()
-    {
-        Debug.Log("Player Has Died");
-    }
-
     // Start is called before the first frame update
     void Start()
     {

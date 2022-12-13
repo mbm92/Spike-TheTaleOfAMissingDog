@@ -16,6 +16,7 @@ TagManager:
   - GeneratedPoints
   - GameManager
   - Weapon
+  - Enemy
   layers:
   - Default
   - TransparentFX
