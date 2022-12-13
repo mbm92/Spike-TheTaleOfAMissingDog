@@ -78,7 +78,7 @@ public class DoorWay : MonoBehaviour
         // if it is, then instansiate portal beam object, that holds a screnTransition logic.
         // 
 
-        if (player.CompareTag("Player") && !player.isTrigger)
+        if (player.CompareTag("Player") && !player.isTrigger && GameManager.instance.bossKilled)
         {
             //SceneManager.LoadScene(sceneToLoad);
             Debug.Log("LoadNext scene - test");
@@ -87,8 +87,10 @@ public class DoorWay : MonoBehaviour
             FindObjectOfType<GameManager>().LoadNextScene();
         }
 
-
-        // what is next room from this on? from this exitPoint? 
+        if (!GameManager.instance.bossKilled)
+        {
+            Debug.Log("You need to defeat the boss");
+        }
     }
 
 
