@@ -10,6 +10,7 @@ public class KeyTrigger : MonoBehaviour
     public List<GameObject> TriggeredObjects = new List<GameObject>();
 
     public static bool KeyCollected = false;    // set a global state for collected key
+    private GameManager gameManager;
 
 
     #region Member Variables
@@ -36,6 +37,7 @@ public class KeyTrigger : MonoBehaviour
 
     void Start()
     {
+        gameManager = GameObject.FindWithTag("GameManager").GetComponent<GameManager>();
         StartingScale = transform.localScale.x;
     }
 
@@ -88,7 +90,7 @@ public class KeyTrigger : MonoBehaviour
                 {
                     Debug.Log("key Collected");
                     child.ToggleObject();
-                    KeyCollected = true;
+                    gameManager.keyCollected = true;
                     //Debug.Log($"DoorWay Toggled: {child.Toggle}");
 
                 }
