@@ -77,7 +77,9 @@ public class BulletScript : MonoBehaviour
         // if it is
         // get otherObjects.EnemyHealth and subtract the health prop with the damage. 
 
-
+    void OnCollisionEnter2D(Collision2D collision2D)
+    {
+        Destroy(gameObject);    
     }
 
     void OnCollisionEnter2D(Collision2D col)

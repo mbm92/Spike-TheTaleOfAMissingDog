@@ -19,6 +19,7 @@ TagManager:
   - HealthDrop
   - Boss
   - BulletSpawner
+  - Enemy
   layers:
   - Default
   - TransparentFX
@@ -70,4 +71,7 @@ TagManager:
     locked: 0
   - name: UI
     uniqueID: 1569049531
+    locked: 0
+  - name: UI
+    uniqueID: 3250703343
     locked: 0
