@@ -59,14 +59,14 @@ public class BulletScript : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if ((other.gameObject.CompareTag("Monsters") || other.gameObject.CompareTag("Boss")) && tagToDamage=="Monsters")
+        if ((other.gameObject.CompareTag("Monsters") || other.gameObject.CompareTag("Boss")) && tagToDamage == "Monsters")
         {
-            
+
             other.gameObject.GetComponent<Enemyhealth>().health -= force;
             Destroy(gameObject);
         }
 
-        if (other.gameObject.CompareTag("Player") && (tagToDamage == "Player" || tagToDamage=="PlayerBoss"))
+        if (other.gameObject.CompareTag("Player") && (tagToDamage == "Player" || tagToDamage == "PlayerBoss"))
         {
 
             other.gameObject.GetComponent<PlayerHealth>().currenthealth -= force;
@@ -77,11 +77,7 @@ public class BulletScript : MonoBehaviour
         // if it is
         // get otherObjects.EnemyHealth and subtract the health prop with the damage. 
 
-    void OnCollisionEnter2D(Collision2D collision2D)
-    {
-        Destroy(gameObject);    
     }
-
     void OnCollisionEnter2D(Collision2D col)
     {
         Destroy(gameObject);
@@ -89,3 +85,4 @@ public class BulletScript : MonoBehaviour
 
 
 }
+
