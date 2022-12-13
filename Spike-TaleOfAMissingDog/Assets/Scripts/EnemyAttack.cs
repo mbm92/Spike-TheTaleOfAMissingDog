@@ -13,15 +13,13 @@ public class EnemyAttack : MonoBehaviour
     private bool playerinrange = false; // this could lead to a problem when restarting game and this is not set to false,
     private bool canattack = true;
 
+
     private void Update()
     {
         if (playerinrange && canattack)
         {
-            Debug.Log("Find player");
-            
             GameObject.Find("Player").GetComponent<PlayerHealth>().currenthealth -= damage;
             StartCoroutine(AttackCooldown());
-            Debug.Log("Enemy Attacked");
         }
     }
 
@@ -45,4 +43,6 @@ public class EnemyAttack : MonoBehaviour
         yield return new WaitForSeconds(enemyCooldown);
         canattack = true;
     }
+
+    
 }

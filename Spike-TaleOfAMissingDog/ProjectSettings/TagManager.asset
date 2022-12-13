@@ -16,6 +16,9 @@ TagManager:
   - GeneratedPoints
   - GameManager
   - Weapon
+  - HealthDrop
+  - Boss
+  - BulletSpawner
   - Enemy
   layers:
   - Default
@@ -65,6 +68,9 @@ TagManager:
     locked: 0
   - name: Player
     uniqueID: 1154525395
+    locked: 0
+  - name: UI
+    uniqueID: 1569049531
     locked: 0
   - name: UI
     uniqueID: 3250703343

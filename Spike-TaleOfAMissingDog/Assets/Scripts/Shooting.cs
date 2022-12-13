@@ -10,14 +10,17 @@ public class Shooting : MonoBehaviour
     private Vector3 mousePos;
 
     public Transform bulletTransform;
-    public GameObject stoneBulletPrefab;
+    private GameObject BulletPrefab;
     
     
     private bool canFire = true;
     private float timer;
     public float timeBetweenFiring;
+    private GameManager gameManager;
 
     void Start(){
+        BulletPrefab = Resources.Load<GameObject>("Weapons/StoneBullet");
+        gameManager = GameObject.FindWithTag("GameManager").GetComponent<GameManager>();
         cam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
     }
     void Update()
@@ -42,13 +45,19 @@ public class Shooting : MonoBehaviour
             Shoot();
             GetComponent<AudioSource>().Play();
         }
-     }
+
+        if (gameManager.creatures_tamed == 1)
+        {
+            BulletPrefab = Resources.Load<GameObject>("Weapons/ArrowBullet");
+        }
+
+    }
 
 
     private void Shoot()
     {
         canFire = false;
-        GameObject bullet = Instantiate(stoneBulletPrefab, bulletTransform.position,Quaternion.identity);
+        GameObject bullet = Instantiate(BulletPrefab, bulletTransform.position, gameObject.transform.rotation);
         
 
         Destroy(bullet,2.0f);
