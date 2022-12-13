@@ -47,8 +47,8 @@ public class Enemyhealth : MonoBehaviour
         slider.value = CalculateHealth();
         player = GameObject.FindGameObjectWithTag("Player");
         TameText = GameObject.Find("TameText").GetComponent<TextMeshProUGUI> ();
-        BodyComponent = gameObject.transform.Find("Body").GetComponent<Renderer>();
-        HeadComponent = BodyComponent.transform.Find("Head").GetComponent<Renderer>();
+        //BodyComponent = gameObject.transform.Find("Body").GetComponent<Renderer>();
+        //HeadComponent = BodyComponent.transform.Find("Head").GetComponent<Renderer>();
     }
 
     void Update()
@@ -76,7 +76,7 @@ public class Enemyhealth : MonoBehaviour
                 Tametimer += Time.deltaTime;
                 if (Tametimer < TameLimit)
                 {
-                    StartCoroutine(Blink());
+                    //StartCoroutine(Blink());
                     if (gameManager.creatures_tamed == 0)
                     {
                         TameText.color = new Color32(0, 0, 0, 255);
@@ -109,23 +109,23 @@ public class Enemyhealth : MonoBehaviour
         return health/ maxHealth;
     }
 
-    IEnumerator Blink()
-    {
+    //IEnumerator Blink()
+    //{
         
-        BodyComponent.enabled = false;
-        if (HeadComponent != null)
-        {
-            HeadComponent.enabled = false;
-        }
-        //Component.enabled = false;
-        yield return new WaitForSeconds(1f);
+    //    BodyComponent.enabled = false;
+    //    if (HeadComponent != null)
+    //    {
+    //        HeadComponent.enabled = false;
+    //    }
+    //    //Component.enabled = false;
+    //    yield return new WaitForSeconds(1f);
         
-        BodyComponent.enabled = true;
-        if (HeadComponent != null)
-        {
-            HeadComponent.enabled = true;
-        }
-        yield return new WaitForSeconds(1f);
+    //    BodyComponent.enabled = true;
+    //    if (HeadComponent != null)
+    //    {
+    //        HeadComponent.enabled = true;
+    //    }
+    //    yield return new WaitForSeconds(1f);
 
-    }
+    //}
 }
