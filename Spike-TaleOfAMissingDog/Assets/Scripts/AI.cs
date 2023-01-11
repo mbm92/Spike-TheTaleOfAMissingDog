@@ -23,9 +23,7 @@ public class AI : MonoBehaviour
     private float timeBetweenFiring;
     private float timer;
     private GameObject BulletSpawners;
-
-
-
+    public AudioClip ShootingSound;
 
     void Start()
     {
@@ -33,6 +31,7 @@ public class AI : MonoBehaviour
         timeBetweenFiring = Random.Range(5f, 8f);
         player = GameObject.FindGameObjectWithTag("Player");
         //bulletPrefab = Resources.Load<GameObject>("Weapons/EnemyBullet");
+        //ShootingSound = Resources.Load<AudioClip>("Sounds/EnemyBulletAtk");
 
     }
 
@@ -110,7 +109,9 @@ public class AI : MonoBehaviour
         {
             bulletPrefab = Resources.Load<GameObject>("Weapons/EnemyBullet");
             canFire = false;
+
             var projectile = Instantiate(bulletPrefab, transform.position, transform.rotation);
+            AudioSource.PlayClipAtPoint(ShootingSound, transform.position, volume: 100f);
 
             Destroy(projectile, 4.0f);
         }

@@ -26,7 +26,12 @@ public class Shooting : MonoBehaviour
     void Update()
     {
 
-        mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
+        if (cam == null)
+        {
+            cam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
+        }
+
+        mousePos = cam.ScreenToWorldPoint(Input.mousePosition); // problem here
         Vector3 rotation = mousePos - transform.position;
         float rotZ = Mathf.Atan2(rotation.y,rotation.x) * Mathf.Rad2Deg -90f;
         transform.rotation = Quaternion.Euler(0,0,rotZ);
@@ -52,7 +57,6 @@ public class Shooting : MonoBehaviour
         }
 
     }
-
 
     private void Shoot()
     {

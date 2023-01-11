@@ -273,6 +273,7 @@ MonoBehaviour:
   speed: 2
   shootSpeed: 2
   fireRate: 0.5
+  ShootingSound: {fileID: 8300000, guid: 40e1e806389fcc047969ef1dfdadb898, type: 3}
 --- !u!114 &7291642407131373603
 MonoBehaviour:
   m_ObjectHideFlags: 0

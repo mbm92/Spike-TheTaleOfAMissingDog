@@ -11,7 +11,7 @@ public class KeyTrigger : MonoBehaviour
 
     public static bool KeyCollected = false;    // set a global state for collected key
     private GameManager gameManager;
-
+    public AudioClip KeyCollectedSound;
 
     #region Member Variables
     /// <summary>
@@ -92,7 +92,7 @@ public class KeyTrigger : MonoBehaviour
                     child.ToggleObject();
                     gameManager.keyCollected = true;
                     //Debug.Log($"DoorWay Toggled: {child.Toggle}");
-
+                    AudioSource.PlayClipAtPoint( KeyCollectedSound,transform.position, volume: 5.0f);
                 }
             }
             // before destroy set global states that ahve something to do with keyCollected.

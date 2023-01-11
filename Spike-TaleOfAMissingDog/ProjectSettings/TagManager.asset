@@ -21,6 +21,7 @@ TagManager:
   - BulletSpawner
   - Enemy
   - MiniGameCam
+  - GameMusic
   layers:
   - Default
   - TransparentFX

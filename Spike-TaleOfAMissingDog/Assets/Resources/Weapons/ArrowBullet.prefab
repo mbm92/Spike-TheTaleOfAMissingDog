@@ -139,6 +139,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   force: 10
   tagToDamage: Monsters
+  HitSound: {fileID: 8300000, guid: 055db97e4e0503146b86bfd512bc7c9f, type: 3}
 --- !u!95 &7090284670825945258
 Animator:
   serializedVersion: 4
