@@ -3,6 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Debug = UnityEngine.Debug;
+using UnityEngine.UI;
+using TMPro;
+using System.Reflection;
+using System;
 
 public class GameManager : MonoBehaviour
 {
@@ -21,14 +25,22 @@ public class GameManager : MonoBehaviour
         instance = this;
         SceneManager.sceneLoaded += LoadState;
         DontDestroyOnLoad(gameObject);
+
+        creatures_counter = GameObject.Find("CreaturesTamedDisplay").GetComponent<TextMeshProUGUI>();
+        key_display = GameObject.Find("KeyImage").GetComponent<Image>();
     }
 
     //resources
-   
+
 
     // Level State 
     public bool bossKilled = false;
     public bool keyCollected = false;
+
+    public float health_drop_rate = 1f / 10f;
+    public GameObject health_drop;
+
+    
 
 
 
@@ -41,6 +53,9 @@ public class GameManager : MonoBehaviour
 
     // Logic
     public int experience;
+    public int creatures_tamed;
+    public TextMeshProUGUI creatures_counter;
+    public Image key_display;
 
     // Save State
     // what do we neeed to save? 
@@ -73,5 +88,19 @@ public class GameManager : MonoBehaviour
     public void RestartGame()
     {
         SceneManager.LoadScene("ForestDay");
+    }
+
+    public void Update()
+    {
+        creatures_counter.text = "Creatures Tamed: " + creatures_tamed.ToString();
+        if (keyCollected)
+        {
+            key_display.color = new Color32(255, 255, 255, 255);
+        }
+        else
+        {
+            key_display.color = new Color32(114, 114, 114, 255);
+        }
+        
     }
 }

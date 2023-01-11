@@ -124,6 +124,7 @@ Transform:
   - {fileID: 8363261226191527158}
   - {fileID: 8363261226010809889}
   - {fileID: 9172341497253481752}
+  - {fileID: 4570481616757930792}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -160,7 +161,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.09, y: 0.42}
+  m_Offset: {x: -0.09, y: 0.24}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -171,7 +172,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.87, y: 0.92}
+  m_Size: {x: 1.87, y: 1.51}
   m_EdgeRadius: 0
 --- !u!114 &6531790496280336864
 MonoBehaviour:
@@ -186,6 +187,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 2
+  shootSpeed: 2
+  fireRate: 0.5
 --- !u!114 &6204397585840167011
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -215,6 +218,7 @@ MonoBehaviour:
   maxHealth: 100
   health: 0
   slider: {fileID: 5277427301758042516}
+  Tametimer: 0
 --- !u!70 &1806844433984227956
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -228,8 +232,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.15, y: -0.27}
-  m_Size: {x: 0.5, y: 0.55}
+  m_Offset: {x: -0.11, y: 0.23}
+  m_Size: {x: 1.44, y: 0.55}
   m_Direction: 0
 --- !u!50 &5170452739029829188
 Rigidbody2D:
@@ -243,7 +247,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 1000
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
@@ -504,6 +508,68 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1001 &1894782581717659569
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 8363261225706177272}
+    m_Modifications:
+    - target: {fileID: 2676829677283169433, guid: 2fafa7fa979374844a82c8d4f903d562, type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2676829677283169433, guid: 2fafa7fa979374844a82c8d4f903d562, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2676829677283169433, guid: 2fafa7fa979374844a82c8d4f903d562, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2676829677283169433, guid: 2fafa7fa979374844a82c8d4f903d562, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2676829677283169433, guid: 2fafa7fa979374844a82c8d4f903d562, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2676829677283169433, guid: 2fafa7fa979374844a82c8d4f903d562, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2676829677283169433, guid: 2fafa7fa979374844a82c8d4f903d562, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2676829677283169433, guid: 2fafa7fa979374844a82c8d4f903d562, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2676829677283169433, guid: 2fafa7fa979374844a82c8d4f903d562, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2676829677283169433, guid: 2fafa7fa979374844a82c8d4f903d562, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2676829677283169433, guid: 2fafa7fa979374844a82c8d4f903d562, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6986900785929813448, guid: 2fafa7fa979374844a82c8d4f903d562, type: 3}
+      propertyPath: m_Name
+      value: RotatePointEnemy
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2fafa7fa979374844a82c8d4f903d562, type: 3}
+--- !u!4 &4570481616757930792 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2676829677283169433, guid: 2fafa7fa979374844a82c8d4f903d562, type: 3}
+  m_PrefabInstance: {fileID: 1894782581717659569}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7834722471191507399
 PrefabInstance:
   m_ObjectHideFlags: 0
