@@ -4,10 +4,6 @@ using UnityEngine;
 
 public static class PoissonDiscSampling
 {
-    // need to figure gridSize = 18x18 units
-    // maybe have a object that contains all the info for these points? 
-
-    
     public static List<Vector2> GeneratingPoints(float radius, Vector2 samplingRegionSize, Vector2 localPosition , int numSamplesBeforeRejection = 30)
     {
         // cellSize = (r / srt(n)) where n is dimensions in the n-dimensional grid. 
