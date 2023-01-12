@@ -95,6 +95,7 @@ public class AI : MonoBehaviour
                 canFire = false;
                 //StartCoroutine(FiringRounds(spawner, bulletPrefab));
                 var projectileround1 = Instantiate(bulletPrefab, spawner.transform.position, spawner.transform.rotation);
+                AudioSource.PlayClipAtPoint(ShootingSound, transform.position, volume: 300f);
                 Destroy(projectileround1, 3.0f);
                 //WaitForSeconds(1);
                 //var projectileround2 = Instantiate(bulletPrefab, spawner.transform.position, spawner.transform.rotation);
@@ -111,7 +112,7 @@ public class AI : MonoBehaviour
             canFire = false;
 
             var projectile = Instantiate(bulletPrefab, transform.position, transform.rotation);
-            AudioSource.PlayClipAtPoint(ShootingSound, transform.position, volume: 100f);
+            AudioSource.PlayClipAtPoint(ShootingSound, transform.position, volume: 300f);
 
             Destroy(projectile, 4.0f);
         }

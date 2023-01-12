@@ -13,6 +13,7 @@ public class PlayerHealth : MonoBehaviour
     public float currenthealth;
     public playerMovement player;
     public Slider slider;
+    public AudioClip pickUpHealthSound;
 
     // Start is called before the first frame update
     void Start()
@@ -51,7 +52,7 @@ public class PlayerHealth : MonoBehaviour
             {
                 currenthealth = maxHealth;
             }
-            
+            AudioSource.PlayClipAtPoint(pickUpHealthSound, transform.position);
             Destroy(drop.gameObject);
         }
     }

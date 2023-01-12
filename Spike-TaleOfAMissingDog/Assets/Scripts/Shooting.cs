@@ -18,6 +18,7 @@ public class Shooting : MonoBehaviour
     public float timeBetweenFiring;
     private GameManager gameManager;
 
+
     void Start(){
         BulletPrefab = Resources.Load<GameObject>("Weapons/StoneBullet");
         gameManager = GameObject.FindWithTag("GameManager").GetComponent<GameManager>();
@@ -31,7 +32,7 @@ public class Shooting : MonoBehaviour
             cam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
         }
 
-        mousePos = cam.ScreenToWorldPoint(Input.mousePosition); // problem here
+        mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
         Vector3 rotation = mousePos - transform.position;
         float rotZ = Mathf.Atan2(rotation.y,rotation.x) * Mathf.Rad2Deg -90f;
         transform.rotation = Quaternion.Euler(0,0,rotZ);

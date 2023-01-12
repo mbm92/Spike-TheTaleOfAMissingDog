@@ -65,7 +65,7 @@ public class BulletScript : MonoBehaviour
         {
 
             other.gameObject.GetComponent<Enemyhealth>().health -= force;
-            AudioSource.PlayClipAtPoint(HitSound, transform.position, volume: 100.0f);
+            AudioSource.PlayClipAtPoint(HitSound, transform.position, volume: 200.0f);
             Destroy(gameObject);
         }
 
@@ -73,6 +73,7 @@ public class BulletScript : MonoBehaviour
         {
 
             other.gameObject.GetComponent<PlayerHealth>().currenthealth -= force;
+            AudioSource.PlayClipAtPoint(HitSound, transform.position, volume: 200.0f);
             Destroy(gameObject);
         }
         // get collide object

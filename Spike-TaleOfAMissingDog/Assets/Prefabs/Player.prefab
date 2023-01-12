@@ -177,6 +177,7 @@ MonoBehaviour:
   currenthealth: 0
   player: {fileID: 1411291133240190442}
   slider: {fileID: 8130488403955776080}
+  pickUpHealthSound: {fileID: 8300000, guid: 7bfb126440f266643b0af8f0afe9ee60, type: 3}
 --- !u!114 &769827232907301865
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -190,7 +191,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletTransform: {fileID: 0}
-  stoneBulletPrefab: {fileID: 8524356572579691081, guid: c8e41275541142c449ac679c2322a15e, type: 3}
   timeBetweenFiring: 0
 --- !u!95 &-9062859821423486459
 Animator:
