@@ -581,7 +581,7 @@ GameObject:
   - component: {fileID: 2643512318799759755}
   m_Layer: 0
   m_Name: MinimapCamera
-  m_TagString: Untagged
+  m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -628,7 +628,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 200
+  orthographic size: 150
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
