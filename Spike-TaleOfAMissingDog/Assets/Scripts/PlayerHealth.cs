@@ -4,6 +4,8 @@ using System.Diagnostics;
 using UnityEngine;
 using UnityEngine.UI;
 
+using Debug = UnityEngine.Debug;
+
 public class PlayerHealth : MonoBehaviour
 {
     
@@ -11,6 +13,7 @@ public class PlayerHealth : MonoBehaviour
     public float currenthealth;
     public playerMovement player;
     public Slider slider;
+    public AudioClip pickUpHealthSound;
 
     // Start is called before the first frame update
     void Start()
@@ -36,5 +39,21 @@ public class PlayerHealth : MonoBehaviour
     float CalculateHealth()
     {
         return currenthealth / maxHealth;
+    }
+
+    void OnTriggerEnter2D(Collider2D drop)
+    {
+        if (drop.gameObject.CompareTag("HealthDrop"))
+        {
+            
+            float addheal = drop.gameObject.GetComponent<heal_amount>().HealAmount;
+            currenthealth = currenthealth + addheal;
+            if (currenthealth >= maxHealth)
+            {
+                currenthealth = maxHealth;
+            }
+            AudioSource.PlayClipAtPoint(pickUpHealthSound, transform.position);
+            Destroy(drop.gameObject);
+        }
     }
 }

@@ -255,7 +255,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.56, y: 1.47}
+  m_Size: {x: 2.56, y: 2.06}
   m_EdgeRadius: 0
 --- !u!114 &560807057759492133
 MonoBehaviour:
@@ -270,6 +270,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 2
+  shootSpeed: 2
+  fireRate: 0.5
+  ShootingSound: {fileID: 8300000, guid: 40e1e806389fcc047969ef1dfdadb898, type: 3}
 --- !u!114 &5910968970767769911
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -299,6 +302,7 @@ MonoBehaviour:
   maxHealth: 100
   health: 0
   slider: {fileID: 7396512265149047344}
+  Tametimer: 0
 --- !u!70 &990315451670579044
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -312,8 +316,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.09}
-  m_Size: {x: 0.91, y: 1.24}
+  m_Offset: {x: 0, y: 0.39}
+  m_Size: {x: 1.89, y: 1.24}
   m_Direction: 0
 --- !u!50 &8501183851750461678
 Rigidbody2D:
@@ -327,7 +331,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 1000
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0

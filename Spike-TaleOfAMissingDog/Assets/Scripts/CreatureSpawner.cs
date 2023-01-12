@@ -26,7 +26,7 @@ public class CreatureSpawner : MonoBehaviour
     {
         monstersTemplate = GameObject.FindGameObjectWithTag("Monsters").GetComponent<MonstersTemplate>();
 
-        radius = Random.Range(9f, 11f);
+        radius = Random.Range(7f, 11f);
 
         points = PoissonDiscSampling.GeneratingPoints(radius, regionSize, transform.position, rejectionSamples);
 

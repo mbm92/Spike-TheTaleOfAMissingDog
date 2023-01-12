@@ -16,6 +16,12 @@ TagManager:
   - GeneratedPoints
   - GameManager
   - Weapon
+  - HealthDrop
+  - Boss
+  - BulletSpawner
+  - Enemy
+  - MiniGameCam
+  - GameMusic
   layers:
   - Default
   - TransparentFX
@@ -67,4 +73,9 @@ TagManager:
     locked: 0
   - name: Minimap
     uniqueID: 3316854939
+  - name: UI
+    uniqueID: 1569049531
+    locked: 0
+  - name: UI
+    uniqueID: 3250703343
     locked: 0

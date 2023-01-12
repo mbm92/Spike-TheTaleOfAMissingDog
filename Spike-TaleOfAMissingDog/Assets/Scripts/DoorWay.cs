@@ -18,9 +18,9 @@ public class DoorWay : MonoBehaviour
     void Start()
     {
         doorOpened = false;
-        Debug.Log("doorOpend? " + doorOpened);
+        
         collider = gameObject.GetComponent<Collider2D>();
-        Debug.Log("collider is enabled " + collider.isActiveAndEnabled);
+        
         _mask = Mask;
 
         if (!doorOpened)
@@ -28,20 +28,19 @@ public class DoorWay : MonoBehaviour
             Mask.enabled = false;   // turn off runes
             
             collider.enabled = false;
-            Debug.Log("collider is enabled " + collider.isActiveAndEnabled);
-            Debug.Log("Door closed");
+            
         }
         else if(doorOpened)
         {
             Mask.enabled = true;    // turns on runes
             collider.enabled = true;
-            Debug.Log("Door open");
+            
         }
     }
 
     public void ToggleObject()
     {
-        Debug.Log("Entered ToggleMethod. door opened? " + doorOpened);
+       
     
         _mask.enabled = true;
         collider.enabled = true;
@@ -54,15 +53,15 @@ public class DoorWay : MonoBehaviour
         // if it is, then instansiate portal beam object, that holds a screnTransition logic.
         // 
 
-        Debug.Log("collider is enabled?" + collider.isActiveAndEnabled);
+        
         if (collider.isActiveAndEnabled)
         {
-            Debug.Log("Door open");
+            
             doorOpened = true;
         }
         else
         {
-            Debug.Log("Door still closed");
+           
         }
     }
 
@@ -78,17 +77,19 @@ public class DoorWay : MonoBehaviour
         // if it is, then instansiate portal beam object, that holds a screnTransition logic.
         // 
 
-        if (player.CompareTag("Player") && !player.isTrigger)
+        if (player.CompareTag("Player") && !player.isTrigger && GameManager.instance.bossKilled)
         {
             //SceneManager.LoadScene(sceneToLoad);
-            Debug.Log("LoadNext scene - test");
+            
             // call gameManager?
 
             FindObjectOfType<GameManager>().LoadNextScene();
         }
 
-
-        // what is next room from this on? from this exitPoint? 
+        if (!GameManager.instance.bossKilled)
+        {
+            Debug.Log("You need to defeat the boss");
+        }
     }
 
 
