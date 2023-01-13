@@ -81,7 +81,10 @@ public class GameManager : MonoBehaviour
     {
         if(!player) player = GameObject.FindGameObjectWithTag("Player");
         DontDestroyOnLoad(player);  // is this what needs to be done?
+
+        ResetGameVariables();
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        
     }
 
     public void ResetGameVariables()
@@ -102,9 +105,13 @@ public class GameManager : MonoBehaviour
     public void Update()
     {
         // check if creature counter and KeyImage is set
-        if (creatures_counter == null || key_display == null)
+        if (creatures_counter == null)
         {
             creatures_counter = GameObject.Find("CreaturesTamedDisplay").GetComponent<TextMeshProUGUI>();
+        }
+
+        if (key_display == null)
+        {
             key_display = GameObject.Find("KeyImage").GetComponent<Image>();
         }
 
