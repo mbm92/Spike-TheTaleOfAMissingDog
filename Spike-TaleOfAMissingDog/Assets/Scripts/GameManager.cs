@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
 
     private GameObject player;
+    public bool outroScene = false;
 
     private void Awake()
     {
@@ -79,28 +80,56 @@ public class GameManager : MonoBehaviour
 
     public void LoadNextScene()
     {
-        if(!player) player = GameObject.FindGameObjectWithTag("Player");
-        DontDestroyOnLoad(player);  // is this what needs to be done?
+        //if(!player) player = GameObject.FindGameObjectWithTag("Player");
+        //DontDestroyOnLoad(player);  // is this what needs to be done?
+
+        keyCollected = false;
+        bossKilled = false;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
+    public void LoadMainMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
+    }
 
     public void RestartGame()
     {
+        ResetGameValues();
         SceneManager.LoadScene("ForestDay");
+    }
+
+    public void ResetGameValues()
+    {
+        creatures_tamed = 0;
+        keyCollected = false;
+        bossKilled = false;
     }
 
     public void Update()
     {
-        creatures_counter.text = "Creatures Tamed: " + creatures_tamed.ToString();
-        if (keyCollected)
+        if (!outroScene)
         {
-            key_display.color = new Color32(255, 255, 255, 255);
+            if (creatures_counter == null)
+            {
+                creatures_counter = GameObject.Find("CreaturesTamedDisplay").GetComponent<TextMeshProUGUI>();
+            }
+
+            if (key_display == null)
+            {
+                key_display = GameObject.Find("KeyImage").GetComponent<Image>();
+            }
+
+
+            creatures_counter.text = "Creatures Tamed: " + creatures_tamed.ToString();
+            if (keyCollected)
+            {
+                key_display.color = new Color32(255, 255, 255, 255);
+            }
+            else
+            {
+                key_display.color = new Color32(114, 114, 114, 255);
+            }
         }
-        else
-        {
-            key_display.color = new Color32(114, 114, 114, 255);
-        }
-        
     }
 }

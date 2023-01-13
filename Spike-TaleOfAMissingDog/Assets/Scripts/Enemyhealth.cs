@@ -61,6 +61,7 @@ public class Enemyhealth : MonoBehaviour
 
         if (health <= 0 )
         {
+            this.GetComponent<EnemyAttack>().canattack = false;
             if (gameObject.tag == "Boss")
             {
                 gameManager.bossKilled = true;

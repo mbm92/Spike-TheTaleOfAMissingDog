@@ -11,7 +11,7 @@ public class EnemyAttack : MonoBehaviour
     public float damage = 6;
 
     private bool playerinrange = false; // this could lead to a problem when restarting game and this is not set to false,
-    private bool canattack = true;
+    public bool canattack = true;
 
 
     private void Update()
