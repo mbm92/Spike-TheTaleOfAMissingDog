@@ -80,7 +80,7 @@ public class GameManager : MonoBehaviour
     public void LoadNextScene()
     {
         if(!player) player = GameObject.FindGameObjectWithTag("Player");
-        DontDestroyOnLoad(player);
+        DontDestroyOnLoad(player);  // is this what needs to be done?
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 

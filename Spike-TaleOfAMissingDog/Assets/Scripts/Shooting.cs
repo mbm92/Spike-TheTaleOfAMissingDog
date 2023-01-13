@@ -18,6 +18,7 @@ public class Shooting : MonoBehaviour
     public float timeBetweenFiring;
     private GameManager gameManager;
 
+
     void Start(){
         BulletPrefab = Resources.Load<GameObject>("Weapons/StoneBullet");
         gameManager = GameObject.FindWithTag("GameManager").GetComponent<GameManager>();
@@ -25,6 +26,11 @@ public class Shooting : MonoBehaviour
     }
     void Update()
     {
+
+        if (cam == null)
+        {
+            cam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
+        }
 
         mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
         Vector3 rotation = mousePos - transform.position;
@@ -52,7 +58,6 @@ public class Shooting : MonoBehaviour
         }
 
     }
-
 
     private void Shoot()
     {

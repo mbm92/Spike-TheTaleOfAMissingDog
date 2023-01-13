@@ -46,7 +46,7 @@ public class Enemyhealth : MonoBehaviour
         health = maxHealth;
         slider.value = CalculateHealth();
         player = GameObject.FindGameObjectWithTag("Player");
-        TameText = GameObject.Find("TameText").GetComponent<TextMeshProUGUI> ();
+        TameText = GameObject.Find("TameText").GetComponent<TextMeshProUGUI> ();    // can trigger a error
         //BodyComponent = gameObject.transform.Find("Body").GetComponent<Renderer>();
         //HeadComponent = BodyComponent.transform.Find("Head").GetComponent<Renderer>();
     }

@@ -138,3 +138,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   force: 4
   tagToDamage: Player
+  HitSound: {fileID: 8300000, guid: 66230a37223478a439e7fec62f327b28, type: 3}

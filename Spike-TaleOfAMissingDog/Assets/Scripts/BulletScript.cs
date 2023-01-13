@@ -15,6 +15,8 @@ public class BulletScript : MonoBehaviour
     public float force;
     public string tagToDamage;
 
+    public AudioClip HitSound;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -63,6 +65,7 @@ public class BulletScript : MonoBehaviour
         {
 
             other.gameObject.GetComponent<Enemyhealth>().health -= force;
+            AudioSource.PlayClipAtPoint(HitSound, transform.position, volume: 200.0f);
             Destroy(gameObject);
         }
 
@@ -70,6 +73,7 @@ public class BulletScript : MonoBehaviour
         {
 
             other.gameObject.GetComponent<PlayerHealth>().currenthealth -= force;
+            AudioSource.PlayClipAtPoint(HitSound, transform.position, volume: 200.0f);
             Destroy(gameObject);
         }
         // get collide object
