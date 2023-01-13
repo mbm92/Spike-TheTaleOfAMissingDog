@@ -26,7 +26,7 @@ TagManager:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Minimap
   - Water
   - UI
   - 
@@ -76,4 +76,7 @@ TagManager:
     locked: 0
   - name: UI
     uniqueID: 3250703343
+    locked: 0
+  - name: Minimap
+    uniqueID: 1279598319
     locked: 0
