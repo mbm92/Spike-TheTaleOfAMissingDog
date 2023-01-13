@@ -84,14 +84,30 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
+    public void ResetGameVariables()
+    {
+        creatures_tamed = 0;
+        bossKilled = false;
+        keyCollected = false;
+        // what else need to be reset?
+    }
 
     public void RestartGame()
     {
+        // reset stuff
+        ResetGameVariables();
         SceneManager.LoadScene("ForestDay");
     }
 
     public void Update()
     {
+        // check if creature counter and KeyImage is set
+        if (creatures_counter == null || key_display == null)
+        {
+            creatures_counter = GameObject.Find("CreaturesTamedDisplay").GetComponent<TextMeshProUGUI>();
+            key_display = GameObject.Find("KeyImage").GetComponent<Image>();
+        }
+
         creatures_counter.text = "Creatures Tamed: " + creatures_tamed.ToString();
         if (keyCollected)
         {
