@@ -52,7 +52,7 @@ public class Shooting : MonoBehaviour
             GetComponent<AudioSource>().Play();
         }
 
-        if (gameManager.creatures_tamed == 1)
+        if (gameManager.creatures_tamed == 5)
         {
             BulletPrefab = Resources.Load<GameObject>("Weapons/ArrowBullet");
         }

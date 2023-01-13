@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/finalScenes/ForestNight.unity
     guid: 392d4d3e997499c4882b25f4b0290a0f
+  - enabled: 1
+    path: Assets/Scenes/Intro.unity
+    guid: af21dbb79a9929648b52cbc9c3ee9bda
   m_configObjects: {}
